@@ -1,0 +1,67 @@
+{% assign cache_version = site.github.build_revision %} {% unless cache_version
+%} {% assign cache_version = site.time | date: "%s" %} {% endunless %}
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        {% seo %} {% if page.keywords %}
+        <meta name="keywords" content="{{ page.keywords }}" />
+        {% endif %}{% if page.redirect %}
+        <meta http-equiv="refresh" content="0; url={{ page.redirect }}" />
+        {% endif %}
+        <link
+            href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+            rel="stylesheet"
+            integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
+            crossorigin="anonymous"
+        />
+        {% unless page.custom_favicon %}
+        <link
+            rel="icon"
+            type="image/png"
+            href="/assets/favicon-96x96.png?v={{ cache_version }}"
+            sizes="96x96"
+        />
+        <link
+            rel="icon"
+            type="image/svg+xml"
+            href="/assets/favicon.svg?v={{ cache_version }}"
+        />
+        <link
+            rel="shortcut icon"
+            href="/assets/favicon.ico?v={{ cache_version }}"
+        />
+        <link
+            rel="apple-touch-icon"
+            sizes="180x180"
+            href="/assets/apple-touch-icon.png?v={{ cache_version }}"
+        />
+
+        {% endunless %} {% if page.custom_favicon %}
+        <link
+            rel="icon"
+            type="{{ page.custom_favicon_type }}"
+            href="{{ page.custom_favicon }}"
+        />
+        {% endif %}
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <link rel="manifest" href="/site.webmanifest?v={{ cache_version }}" />
+        <meta name="apple-mobile-web-app-title" content="oratot.com" />
+        <link rel="stylesheet" href="/style.css?v={{ cache_version }}" />
+    </head>
+    <body class="bg-dark text-white">
+        <div class="container">
+            <header>
+                <img src="/assets/logo.webp" style="height: 350px" />
+            </header>
+            {{ content }}
+        </div>
+        <script
+            defer
+            src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+            crossorigin="anonymous"
+        ></script>
+    </body>
+</html>

@@ -1,0 +1,35 @@
+title: Pancho
+description: "Sito di Pancho"
+url: "https://itspanchoyt.github.io"
+tagline: "Sito personale di Pancho"
+
+author:
+  name: Francesco Dacciò
+
+social:
+  name: Pancho
+  links:
+    - https://www.youtube.com/@PANCHOYT-o3v
+    - https://www.instagram.com/panchoooyt
+
+logo: /assets/logo.webp
+
+markdown: kramdown
+highlighter: rouge
+
+kramdown:
+  syntax_highlighter: rouge
+  syntax_highlighter_opts:
+    formatter: HTML
+
+plugins:
+  - jekyll-seo-tag
+  - jekyll-sitemap
+
+exclude:
+  - .git
+  - .github
+  - README.md
+  - LICENSE
+  - .gitignore
+  - CNAME
